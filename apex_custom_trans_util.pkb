@@ -496,12 +496,13 @@ CREATE OR REPLACE PACKAGE BODY apex_custom_trans_util IS
                              n005 translate_to_id
                         FROM apex_collections ac
                        WHERE ac.collection_name = '''||m_collection||''') t
-                    ,apex_translatable_text tt
-               WHERE t.translated_application_id = '||i_translated_app_id||' 
-                 AND tt.translate_from_id = t.translate_from_id
-                 AND tt.translate_to_id = t.translate_to_id
-                 AND tt.translate_from_flow_table = t.translate_from_flow_table
-                 AND tt.translate_from_flow_column = t.translate_from_flow_column)
+                        ,apex_translatable_text tt
+                   WHERE t.translated_application_id = '||i_translated_app_id||' 
+                     AND tt.translate_from_id = t.translate_from_id
+                     AND tt.translate_to_id = t.translate_to_id
+                     AND tt.translate_from_flow_table = t.translate_from_flow_table
+                     AND tt.translate_from_flow_column = t.translate_from_flow_column
+                     AND tt.translate_from_flow_column NOT LIKE ''ATTRIBUTE%'')
                UNION ALL
               SELECT ''apex_custom_trans_util.publish_application('||v('APP_ID')||', '||i_translated_app_id||');'' sql_line FROM dual WHERE '''||i_publish||''' = ''Y''
                UNION ALL
