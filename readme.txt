@@ -5,3 +5,6 @@
 3) Install the demo App or use the package as standalone. The Demo App uses the built in HR schema.
 
 4) Customize to your own needs.
+
+*IMPORTANT: the generated SQL script for transferring translations relies on the option that the Application was originally deployes with the "Preserve Original IDs" option.
+If this is not the case in your application, you have to to some modifications to the utility package.
