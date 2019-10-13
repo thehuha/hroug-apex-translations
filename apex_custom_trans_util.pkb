@@ -7,7 +7,7 @@ CREATE OR REPLACE PACKAGE BODY apex_custom_trans_util IS
 *******************************************************************************/
 
   m_collection   VARCHAR2(30)   := 'APEX_APP_TRANSLATIONS';
-  m_workspace_id NUMBER         := apex_util.find_security_group_id('LOCAL');
+  m_workspace_id NUMBER         := apex_util.find_security_group_id('DEMO1'); -- set your appropriate Workspace
   
   ------------------------------------------------------------------------------
   -- is_attribute_translatable
